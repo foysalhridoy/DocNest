@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f8f7fd;
+  --foreground: #0f0e17;
+  --card: #ffffff;
+  --card-foreground: #0f0e17;
+  --primary: #4338ca;
+  --primary-hover: #3730a3;
+  --primary-foreground: #ffffff;
+  --muted: #f1f0f9;
+  --muted-foreground: #636079;
+  --border: #e7e5f3;
+  --input: #f1f0f9;
+  --ring: #4f46e5;
+}
+
+.dark {
+  --background: #0e0d15;
+  --foreground: #f8f7ff;
+  --card: #161522;
+  --card-foreground: #f8f7ff;
+  --primary: #5d4fe6;
+  --primary-hover: #4f41d9;
+  --primary-foreground: #ffffff;
+  --muted: #1c1b2a;
+  --muted-foreground: #9895b3;
+  --border: #262438;
+  --input: #1c1b2a;
+  --ring: #5d4fe6;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Prevent media from causing horizontal overflow */
+img, svg, video, canvas, audio, iframe, embed, object {
+  max-width: 100%;
+}
+
+/* World-class mobile scroll utilities */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Direct resilient utilities for theme tokens */
+.bg-primary {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.hover\:bg-primary\/90:hover {
+  background-color: var(--primary-hover) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.border-primary {
+  border-color: var(--primary) !important;
+}
+
+.bg-card {
+  background-color: var(--card) !important;
+}
+
+.text-foreground {
+  color: var(--foreground) !important;
+}
+
+.text-muted-foreground {
+  color: var(--muted-foreground) !important;
+}
+
+.bg-muted {
+  background-color: var(--muted) !important;
+}
+
+.border-border {
+  border-color: var(--border) !important;
+}
+
+/* Ensure native select options have matching contrast in all themes */
+select option {
+  background-color: var(--card);
+  color: var(--card-foreground);
+}
+
+/* Ensure placeholder text is always readable with high contrast in both themes */
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #6b7280 !important;
+  opacity: 1 !important;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
